@@ -1,0 +1,198 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* RNS Brand — Electric Violet */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    --primary: 262 83% 58%;           /* #7C3AED electric violet */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 262 20% 94%;
+    --secondary-foreground: 262 30% 20%;
+
+    --muted: 240 10% 93%;
+    --muted-foreground: 240 5% 46%;
+
+    --accent: 262 20% 93%;
+    --accent-foreground: 262 30% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 8% 88%;
+    --input: 240 8% 88%;
+    --ring: 262 83% 58%;
+
+    /* Status */
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --info: 217 91% 60%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 8%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 262 20% 93%;
+    --sidebar-accent-foreground: 262 30% 20%;
+    --sidebar-border: 240 8% 88%;
+    --sidebar-ring: 262 83% 58%;
+
+    /* Charts */
+    --chart-1: 262 83% 58%;
+    --chart-2: 186 80% 42%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 142 71% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+    --gradient-story: linear-gradient(135deg, #7C3AED 0%, #06B6D4 50%, #F59E0B 100%);
+    --gradient-reels: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(262 20% 97%));
+    --gradient-background: linear-gradient(180deg, hsl(262 20% 97%) 0%, hsl(0 0% 98%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(124,58,237,0.06);
+    --shadow-elevated: 0 8px 32px rgba(124,58,237,0.12);
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 240 5% 96%;
+    --card: 240 10% 7%;
+    --card-foreground: 240 5% 96%;
+    --popover: 240 10% 9%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 13%;
+    --secondary-foreground: 240 5% 96%;
+
+    --muted: 240 10% 13%;
+    --muted-foreground: 240 5% 58%;
+
+    --accent: 240 10% 15%;
+    --accent-foreground: 240 5% 96%;
+
+    --destructive: 0 62% 38%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 8% 16%;
+    --input: 240 8% 16%;
+    --ring: 262 83% 65%;
+
+    --success: 142 60% 40%;
+    --warning: 38 80% 45%;
+    --info: 217 80% 55%;
+
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 240 5% 90%;
+    --sidebar-primary: 262 83% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 13%;
+    --sidebar-accent-foreground: 240 5% 90%;
+    --sidebar-border: 240 8% 16%;
+    --sidebar-ring: 262 83% 65%;
+
+    --chart-1: 262 75% 65%;
+    --chart-2: 186 70% 50%;
+    --chart-3: 38 80% 55%;
+    --chart-4: 0 72% 55%;
+    --chart-5: 142 60% 48%;
+
+    --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%);
+    --gradient-story: linear-gradient(135deg, #8B5CF6 0%, #22D3EE 50%, #FBBF24 100%);
+    --gradient-reels: linear-gradient(135deg, #8B5CF6 0%, #F472B6 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 10% 7%), hsl(262 15% 9%));
+    --gradient-background: linear-gradient(180deg, hsl(262 12% 6%) 0%, hsl(240 10% 4%) 100%);
+
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(139,92,246,0.08);
+    --shadow-elevated: 0 8px 32px rgba(139,92,246,0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  /* RNS brand logo gradient */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #7C3AED 0%, #06B6D4 60%, #F59E0B 100%);
+  }
+
+  /* Story ring */
+  .story-ring {
+    background: var(--gradient-story);
+  }
+
+  /* Reels gradient */
+  .reels-gradient {
+    background: var(--gradient-reels);
+  }
+
+  /* Pulse like animation */
+  @keyframes heartBeat {
+    0%   { transform: scale(1);   opacity: 1; }
+    25%  { transform: scale(1.4); opacity: 1; }
+    50%  { transform: scale(1.1); opacity: 0.9; }
+    75%  { transform: scale(1.3); opacity: 0.8; }
+    100% { transform: scale(1);   opacity: 0; }
+  }
+  .heart-burst {
+    animation: heartBeat 0.6s ease-out forwards;
+  }
+
+  /* Reel card overlay fade */
+  .reel-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  }
+
+  /* Landing page entry animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-6px); }
+  }
+}
